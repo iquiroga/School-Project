@@ -1,12 +1,16 @@
 ﻿using System;
+using CoreEscuela.Entidades;
 
 namespace Etapa1
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      var escuela = new Escuela("Platzi Academy", 2012);
+      escuela.Pais = "Colombia";
+      escuela.ciudad = "Bogotá";
+      Console.WriteLine(escuela.Nombre);
     }
+  }
 }

@@ -1,13 +1,23 @@
-namespace CorEscuela.Entidades
+namespace CoreEscuela.Entidades
 {
-    class Escuela
+  class Escuela
+  {
+    string nombre; // variable que encapsula la propiedad
+    public string Nombre //propiedad que accede a la variable nombre...
     {
-      string nombre;
-      public string Nombre 
-      { 
-        get { return nombre; } 
-        set { nombre = value; }
-      }
-
+      get { return "Copia: " + nombre; } //cuando alguien pregunta por el nombre retorna el campo nombre...
+      set { nombre = value.ToUpper(); } /*cuando alguien desde afuera de la clase quiera asignarle un valor
+                                por medio de esta propiedad. el valor que nos entregue se lo asignamos a
+                                la variable nombre...*/
+      //con .ToUpper lo que hacemos es convertir el nombre en mayúsculas
     }
+
+    public int AñoDeCreacion { get; set; } //el compilador crea una variable "AñoDeCreacion" y crea una logica como arriba
+
+    public string Pais { get; set; }
+
+    public string ciudad { get; set; }
+
+    public Escuela(string nombre, int año) => (Nombre, AñoDeCreacion) = (nombre, año);
+  }
 }
