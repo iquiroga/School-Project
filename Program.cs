@@ -3,23 +3,16 @@ using System.Linq;
 using CoreEscuela.Entidades;
 using static System.Console;
 
-namespace Etapa1
+namespace CoreEscuela
 {
   class Program
   {
     static void Main(string[] args)
     {
-      var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.Primaria,
-      pais: "Colombia", ciudad: "Bogotá"
-      );
-
-      escuela.Cursos = new Curso[]{
-                          new Curso{Nombre = "101"},
-                          new Curso{Nombre = "201"},
-                          new Curso{Nombre = "301"}
-      };
-
-      ImprimirCursosEscuela(escuela);
+      var engine = new EscuelaEngine();
+      engine.Inicializar();
+      
+      ImprimirCursosEscuela(engine.Escuela);
     }
     private static void ImprimirCursosEscuela(Escuela escuela)
     {
@@ -31,7 +24,7 @@ namespace Etapa1
 
       foreach (var curso in escuela.Cursos)
       {
-        WriteLine($"Nombre {curso.Nombre}, Id {curso.UniqueId}, Jornada {curso.Jornada}");
+        WriteLine($"Nombre {curso.Nombre}, Id {curso.UniqueId}, Jornada: {curso.Jornada}");
       }
     }
   }
