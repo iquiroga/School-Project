@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using CoreEscuela.Util;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -11,16 +10,13 @@ namespace CoreEscuela
     {
       var engine = new EscuelaEngine();
       engine.Inicializar();
-      
+      Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
+      Printer.Beep();
       ImprimirCursosEscuela(engine.Escuela);
     }
     private static void ImprimirCursosEscuela(Escuela escuela)
     {
-      string separador = String.Concat(Enumerable.Repeat("=", 20));
-      string separador2 = new string('*', 20);
-      WriteLine(separador);
-      WriteLine("Cursos de la Escuela");
-      WriteLine(separador);
+      Printer.WriteTitle("Cursos de la Escuela");
 
       foreach (var curso in escuela.Cursos)
       {
